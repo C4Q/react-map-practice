@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = React.createClass({
   getInitialState() {
-    return {gifs: []}
+    return {gifs: []};
   },
   componentDidMount() {
     this.setState({gifs: [
@@ -13,10 +13,24 @@ const Home = React.createClass({
       {link: 'https://media.giphy.com/media/26gJyW8DprRP5Z5tu/source.gif', name: 'Hermit Crab'}
     ]})
   },
-  // your code here:
+
+  // Breakdown:
+  //this.state= to change setState. While using the map function, set a paramater, create a list form to the paramter.
+  //give it a key to use an id(postico option, assuming). Create a img link tag, set it to the object(parameter + setState, object(git.link)).
+  //Place parameter + setState(gif.name) between <li> tags.
+  
   render() {
     return (
-      <h1>GIFs + Names Coming Soon:</h1>
+      <div>
+        <ul>
+          <h1>Animals Gifs</h1>
+
+            {this.state.gifs.map(function(gif){
+              return <li gif={gif} key={gif.id}><img src={gif.link}/><br />{gif.name}</li>
+            })}
+        </ul>
+      </div>
+
     )
   }
 })
