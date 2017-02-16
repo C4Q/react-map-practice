@@ -12,11 +12,12 @@ const Countries = React.createClass({
   },
 
   componentDidMount: function(){
+    var that = this
     $.ajax({
       type: 'GET',
       url: 'https://restcountries.eu/rest/v1/all',
       success: function(data){
-        return({
+        that.setState({
         countryName: this.state.name,
         capitalCity: this.state.capital,
         population: this.state.population,
@@ -35,3 +36,5 @@ render: function(){
     )
   }
 })
+
+export default Countries;
