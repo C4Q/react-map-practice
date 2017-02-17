@@ -25,8 +25,8 @@ const Home = React.createClass({
         <ul>
           <h1>Animals Gifs</h1>
 
-            {this.state.gifs.map(function(gif){
-              return <li gif={gif} key={gif.id}><img src={gif.link}/><br />{gif.name}</li>
+            {this.state.gifs.map(function(gif, idx){
+              return <li key={idx}><img src={gif.link}/><br />{gif.name}</li>
             })}
         </ul>
       </div>
